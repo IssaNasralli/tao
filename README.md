@@ -37,14 +37,12 @@ matplotlib
 ```
 TAO-Net-Test/
 │── README.md
-│── requirements.txt
 │── weight.h5        # Pretrained weights
 │── predict.py       # Run testing: trajectory prediction + action classification
 │── ato.py           # Model definition
 │
 └── JAAD/            # Subset of JAAD dataset (5 demo videos + annotations)
-    ├── videos/      # Sample pedestrian crossing clips
-    └── annotations/ # Ground-truth annotations
+
 ```
 
 ---
