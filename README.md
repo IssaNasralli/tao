@@ -85,6 +85,3 @@ If you use **TAO-Net**, please cite:
 
 ---
 
-## 📄 License
-
-This project is released under the **MIT License**.
