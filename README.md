@@ -37,7 +37,6 @@ matplotlib
 ```
 TAO-Net-Test/
 │── README.md
-│── weight.h5        # Pretrained weights
 │── predict.py       # Run testing: trajectory prediction + action classification
 │── ato.py           # Model definition
 │
@@ -56,7 +55,11 @@ For full evaluation, download JAAD from its [official source](https://data.nvisi
 ---
 
 ### 2) Run Prediction
-Use the pretrained weights `weight.h5` to test trajectory + action classification:
+Use the pretrained weights [`weight.h5`](https://drive.google.com/file/d/1Wb8Jh46_M5lzV-a603ruT8XiiR9wCmVb/view?usp=sharing) to test trajectory + action classification:
+
+```bash
+python predict.py --weights weight.h5
+
 
 ```bash
 python predict.py
