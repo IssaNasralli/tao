@@ -40,7 +40,7 @@ TAO-Net-Test/
 │── predict.py       # Run testing: trajectory prediction + action classification
 │── ato.py           # Model definition
 │
-└── JAAD/            # Subset of JAAD dataset (5 demo videos + annotations)
+└── JAAD/            # Subset of JAAD dataset (10 demo videos + annotations)
 
 ```
 
