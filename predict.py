@@ -223,11 +223,6 @@ def predict_video(model_weight, sequence_length, video_folder , checkpoint_file,
                 video_path = os.path.join(video_folder, video_file)
                 annotation_path = os.path.join(video_folder, video_file.replace(".mp4", ".xml"))
                 
-                # Check if the video has already been processed
-                if video_file in processed_videos:
-                    print(f"Skipping {video_file}, already processed.")
-                    continue  # Skip to the next video
-               
                 print(f"Processing {video_path}")
                 
                 if os.path.exists(checkpoint_track):
@@ -271,7 +266,6 @@ def predict_video(model_weight, sequence_length, video_folder , checkpoint_file,
                         max_frames=max_frames-sequence_length
                         cap = cv2.VideoCapture(video_path)
                         desired_width , desired_height = 1200,600
-                        #scale_x, scale_y = calculate_scale_factors(video_path, desired_width, desired_height)
                         scale_x, scale_y = 1,1
                         cap.set(cv2.CAP_PROP_POS_FRAMES, min_frames)
                         while cap.isOpened():
@@ -279,11 +273,9 @@ def predict_video(model_weight, sequence_length, video_folder , checkpoint_file,
                             if not ret:
                                 break
                             print(f"{sequence_length}: video_file={video_file}/pedestrian={iterated} of {len_track_elements}/min_frames={min_frames}/frame_number={frame_number}/max_frames={max_frames}")
-                            #print("contradiction:", contradiction)
                             
                             
                             frame_number = int(cap.get(cv2.CAP_PROP_POS_FRAMES)) - 1
-                            #print(f"frame_number & max_frames & min_frames:{frame_number} & {min_frames-1} & {max_frames-1} ") 
                             if (frame_number>max_frames-1):
                                 break
                             
@@ -423,18 +415,7 @@ def predict_video(model_weight, sequence_length, video_folder , checkpoint_file,
         
                         cap.release()
                         cv2.destroyAllWindows()
-                        with open(checkpoint_track, 'a') as f:
-                            f.write(f"{track_id}\n")
-                        print(f"{track_id} processed and added to the checkpoint.")
-                
-                # After processing, add the video file to the checkpoint file
-                with open(checkpoint_file, 'a') as f:
-                    f.write(f"{video_file}\n")
-                print(f"{video_file} processed and added to the checkpoint.")
-     
-                if os.path.exists(f"checkpoint_track_{sequence_length}.txt"):
-                    os.remove(f"checkpoint_track_{sequence_length}.txt")
-    
+
                 gc.collect()
                 
 
