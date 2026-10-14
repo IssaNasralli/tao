@@ -75,11 +75,11 @@ This will output:
 If you use **TAO-Net**, please cite:
 
 ```bibtex
-@article{taonet2025,
+@article{taonet2026,
   title   = {TAO-Net: Multimodal Trajectory, Action, and Orientation Network for Pedestrian Forecasting},
-  author  = {Your Name and Co-authors},
-  journal = {Turkish Journal of Mathematics and Computer Science},
-  year    = {2025}
+  author  = {},
+  journal = {},
+  year    = {}
 }
 ```
 
